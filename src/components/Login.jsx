@@ -72,7 +72,7 @@ const Login = () => {
       toast("Login Successful")
 
 
-      //navigate('/browse');
+      navigate('/browse');
 
 
 

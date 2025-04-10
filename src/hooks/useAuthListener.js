@@ -1,11 +1,11 @@
 import { onAuthStateChanged } from 'firebase/auth';
 import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { auth } from './firebase.config';
+import { auth } from '../utils/firebase.config';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { addUser, removeUser } from './store/userSlice';
+import { addUser, removeUser } from '../utils/store/userSlice';
 
-const AuthListener = () => {
+const useAuthListener = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const location = useLocation();
@@ -27,11 +27,8 @@ const AuthListener = () => {
             }
         })
 
-        return () => unsubscribe()
+        return () => unsubscribe() // unsubscribe to the event listener
     },[navigate,dispatch])
-  return (
-    <></>
-  )
 }
 
-export default AuthListener
+export default useAuthListener;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Header from './Header';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { validateInput } from '../utils/validateInput';
 import { auth } from '../utils/firebase.config';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SignUp = () => {
+    const navigate = useNavigate();
     const [formInput, setFormInput] = useState({
         fullName: "",
         email: "",
@@ -52,8 +53,8 @@ const SignUp = () => {
                 })
                 const user = auth.currentUser;
                 
-                console.log(user)
-
+                //console.log(user)
+                navigate('/browse')
                 toast("User Registered Successfully")
 
                 setFormInput({
@@ -78,9 +79,6 @@ const SignUp = () => {
             }).finally(()=>{
                 dispatch(stopLoading());
             });
-
-        console.log(formInput.email)
-        console.log(formInput.password)
     }
 
     const handleChange = (e) => {
@@ -102,16 +100,16 @@ const SignUp = () => {
                 onSubmit={(e) => handleSubmit(e)}>
                 <label className='text-white font-bold text-3xl'>Sign Up</label>
                 <div>
-                    <input type="text" name='fullName' onChange={handleChange} className='p-2 w-full  h-14 border-2 border-gray-400 rounded focus:outline-2 focus:outline-offset-2 focus:outline-white bg-transparent text-white' placeholder='Full Name' />
+                    <input type="text" name='fullName' value={formInput.fullName} onChange={handleChange} className='p-2 w-full  h-14 border-2 border-gray-400 rounded focus:outline-2 focus:outline-offset-2 focus:outline-white bg-transparent text-white' placeholder='Full Name' />
                     {inputErrors.fullName && <p className='text-sm text-red-500 mt-1'>{inputErrors.fullName}</p>}
                 </div>
                 <div>
-                    <input type="text" name='email' onChange={handleChange} className='p-2 w-full h-14 border-2 border-gray-400 rounded focus:outline-2 focus:outline-offset-2 focus:outline-white bg-transparent text-white' placeholder='Email' />
+                    <input type="text" name='email'value={formInput.email} onChange={handleChange} className='p-2 w-full h-14 border-2 border-gray-400 rounded focus:outline-2 focus:outline-offset-2 focus:outline-white bg-transparent text-white' placeholder='Email' />
                     {inputErrors.email && <p className='text-sm text-red-500 mt-1'>{inputErrors.email}</p>}
                 </div>
 
                 <div>
-                    <input type="password" name='password' onChange={handleChange} className='h-14 w-full p-2 border-2 border-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-white rounded text-white' placeholder='Password' />
+                    <input type="password" name='password' value={formInput.password} onChange={handleChange}  className='h-14 w-full p-2 border-2 border-gray-400 focus:outline-2 focus:outline-offset-2 focus:outline-white rounded text-white' placeholder='Password' />
                     {inputErrors.password && <p className='text-sm text-red-500 mt-1'>{inputErrors.password}</p>}
                 </div>
                 {inputErrors.other && <p className='text-sm text-red-500 mt-1'>{inputErrors.other}</p>}

@@ -1,15 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from './Header'
+import useNowPlayingMovies from '../hooks/useNowPlayingMovies'
+import MainContainer from './MainContainer';
+import SecondaryContainer from './SecondaryContainer';
 
-import { useDispatch } from 'react-redux'
+
 
 
 const Browse = () => {
-  const dispatch = useDispatch();
+  
+  useNowPlayingMovies();
+
   return (
-    <div className='flex'>
+
+    <div className=''>
       <Header></Header>
-      
+      <MainContainer />
+      <SecondaryContainer />
+
+
     </div>
   )
 }

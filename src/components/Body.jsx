@@ -9,7 +9,7 @@ import { auth } from '../utils/firebase.config'
 import { useDispatch } from 'react-redux'
 
 import { ToastContainer } from 'react-toastify'
-import AuthListener from '../utils/AuthListener'
+import useAuthListener from '../hooks/useAuthListener'
 
 
 const Body = () => {
@@ -18,11 +18,11 @@ const Body = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
+    useAuthListener();
     
         
     return (
         <div>
-            <AuthListener />
             <Outlet></Outlet>
             <ToastContainer theme='dark' position='bottom-right' hideProgressBar={true}> </ToastContainer>
         </div>
