@@ -17,13 +17,13 @@ const useMovieTrailer = (movieId) => {
       //console.log(jsonData);
 
       const filterData = jsonData?.results.filter(
-        (video) => video.type === "Trailer"
+        (video) => video.type === "Trailer" && video.official
       );
       const trailer =
         filterData && filterData.length === 0
           ? jsonData?.results?.[0]
           : filterData[0];
-      //console.log(trailer);
+      
 
       dispatch(addTrailerVideo(trailer));
     } catch (error) {

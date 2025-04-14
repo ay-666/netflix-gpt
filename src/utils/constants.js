@@ -12,3 +12,20 @@ export const API_OPTIONS = {
   };
   
 export const CURRENT_PLAYING_MOVIE_ENDPOINT = 'https://api.themoviedb.org/3/movie/now_playing?page=1';
+
+export const MOVIE_IMAGE_CDN_URL='https://image.tmdb.org/t/p/w500/'
+
+export const POPULAR_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/popular?page=1'
+
+export const TOP_RATED_MOVIES_ENDPOINT= 'https://api.themoviedb.org/3/movie/top_rated?page=1'
+
+export const UPCOMING_MOVIES_ENDPOINT = 'https://api.themoviedb.org/3/movie/upcoming?page=1'
+
+export const NETFLIX_BACKGROUND_IMAGE= 'https://assets.nflxext.com/ffe/siteui/vlv3/fbf440b2-24a0-49f5-b2ba-a5cbe8ea8736/web/IN-en-20250324-TRIFECTA-perspective_d7c906ec-0531-47de-8ece-470d5061c88a_small.jpg'
+
+
+export const SUPPORTED_LANGUAGES = [
+  {identifier: 'en',name:'English' },
+  {identifier:'hi',name:'Hindi'},
+  {identifier:'es',name:'Spanish'}
+]
