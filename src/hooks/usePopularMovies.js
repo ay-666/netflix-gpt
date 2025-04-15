@@ -8,6 +8,8 @@ const usePopularMovies = () => {
     const dispatch = useDispatch();
     const user = useSelector((store) => (store.user));
 
+    const popularMovies = useSelector((store)=> (store.movies.popularMovies));
+
 
     const getPopularMovies = async () => {
         try {

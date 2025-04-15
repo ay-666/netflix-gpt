@@ -48,7 +48,7 @@ const GPTSearchBar = () => {
         model:'gemini-2.0-flash',
         contents: gptQuery
       })
-      console.log(res.text)
+      
       
       const movies = res?.text.split(',').map((movie) => movie.trim()) || [];
       
@@ -60,8 +60,7 @@ const GPTSearchBar = () => {
       const moviesDetailsPromiseArray =  movies.map((movie)=> searchMovieByName(movie));
       
       const moviesDetails = await Promise.all(moviesDetailsPromiseArray);
-      console.log(moviesDetails);
-
+      
       dispatch(addSearchedMoviesResult({moviesByAI: movies, searchedMovies:moviesDetails}));
 
 
@@ -75,10 +74,10 @@ const GPTSearchBar = () => {
 
   return (
     <div>
-      <div className='py-16 flex justify-center relative z-20'>
-        <form onSubmit={(e)=>{e.preventDefault()}} className='px-4 bg-black/75 w-1/2 grid grid-cols-12 '>
-            <input ref={searchText} type='text' className='p-3  m-4 col-span-9 text-white border-2  border-gray-400 rounded  focus:outline-white/20 bg-transparent' placeholder={lang[language].gptSearchPlaceholder}></input>
-            <button onClick={handleGPTSearch} className='m-4 col-span-3 text-white font-bold rounded bg-red-600/75'>{lang[language].search}</button>
+      <div className='py-[25%] sm:py-[15%] md:py-20 flex justify-center w-f relative z-20'>
+        <form onSubmit={(e)=>{e.preventDefault()}} className=' bg-black/75 w-3/4 sm:w-2/3 md:w-1/2 flex flex-col md:grid md:grid-cols-12 '>
+            <input ref={searchText} type='text' className='p-3  m-4  md:col-span-9 text-white border-2  border-gray-400 rounded  focus:outline-white/20 bg-transparent' placeholder={lang[language].gptSearchPlaceholder}></input>
+            <button onClick={handleGPTSearch} className='m-4 py-2 md:py-0 md:col-span-3 text-white font-bold rounded bg-red-600/75'>{lang[language].search}</button>
         </form>
         
     </div>

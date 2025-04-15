@@ -25,10 +25,10 @@ const Browse = () => {
     <div className=''>
       <Header></Header>
       {showGptSearch ? (<GPTSearch />)
-        : (<>
+        : (<div className=''>
             <MainContainer />
             <SecondaryContainer />
-        </>)
+        </div>)
       }
 
     </div>

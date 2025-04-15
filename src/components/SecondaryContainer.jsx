@@ -9,7 +9,7 @@ const SecondaryContainer = () => {
     const upcomingMovies = useSelector((store)=>store.movies.upcomingMovies);
   return (
     <div className=' bg-black'>
-        <div className='-mt-52 relative z-20'>
+        <div className=' lg:-mt-52 mt-0 pt-[25vh] sm:pt-[20%] md:pt-[10vh] lg:pt-0 relative z-20'>
         <MovieList title='Now Playing' movies={nowPlayingMovies} />
         <MovieList title='Popular' movies={popularMovies} />
         <MovieList title='Top Rated' movies={topRatedMovies} />

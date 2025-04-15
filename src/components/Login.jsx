@@ -94,15 +94,15 @@ const Login = () => {
   return (
     <div >
       <Header />
-      <div className='absolute'>
-        <img
+      <div className='absolute w-full h-full'>
+        <img className='object-cover w-full h-full'
           src={NETFLIX_BACKGROUND_IMAGE}
           alt="bg"></img>
       </div>
 
-      <form className='w-4/12 py-10 px-14 bg-black/80 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col gap-8'
+      <form className='w-4/5 sm:w-3/5 md:w-1/2 lg:1/4 py-10 px-8 md:px-14 bg-black/80 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] flex flex-col gap-8'
         onSubmit={(e) => handleSubmit(e)}>
-        <label className='text-white font-bold text-3xl'>Sign In</label>
+        <label className='text-white font-bold text-2xl md:text-3xl'>Sign In</label>
         <div>
           <input type="text" name='email' onChange={handleChange} className='p-2 w-full h-14 border-2 border-gray-400 rounded focus:outline-2 focus:outline-offset-2 focus:outline-white bg-transparent text-white' placeholder='Email' />
           {inputErrors.email && <p className='text-sm text-red-500 mt-1'>{inputErrors.email}</p>}

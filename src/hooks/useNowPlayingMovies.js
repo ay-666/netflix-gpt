@@ -8,6 +8,9 @@ const useNowPlayingMovies = () => {
     const dispatch = useDispatch();
     const user = useSelector((store) => (store.user));
 
+    const nowPlayingMovies = useSelector((store)=> (store.movies.nowPlayingMovies));
+
+
 
     const getNowPlayingMovies = async () => {
         try {
@@ -23,7 +26,8 @@ const useNowPlayingMovies = () => {
     }
 
     useEffect(() => {
-        if (user) {
+        if (user && !nowPlayingMovies) {
+
             getNowPlayingMovies();
 
         }
